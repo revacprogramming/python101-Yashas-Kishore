@@ -1,16 +1,21 @@
 # Loops & Iterators
 
-largest = None
-smallest = None
+largest = none
+smallest = none
 
 while True:
-    num = input("Enter a number? ")
-
+    num = input("Enter a number: ")
     if num == "done":
-        break
-
-    # ...
-
-    print(num)
-
-print("Maximum", largest)
+       break
+    try:
+        x=int(num)
+        if largest is none or largest<x:
+            largest=x
+        if smallest  is none or smallest>x:
+            smallest=x
+	except:
+        print("invalid input")
+        
+      
+print("Maximum is", largest)       
+print("Minimum is",smallest)
