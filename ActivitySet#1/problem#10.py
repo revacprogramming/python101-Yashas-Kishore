@@ -19,6 +19,6 @@ for line in fh:
         
 #print(line.strip())
 for k,v in count.items():
-    print(k,v)
+    print(k,'-',v)
 #print(count.keys())
 #print(count.values())
