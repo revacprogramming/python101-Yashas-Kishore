@@ -15,7 +15,7 @@ for line in fh:
             if test in count:
                 count[test] = count[test] + 1
             else:
-                count[words[1]] = 1
+                count[test] = 1
         
 #print(line.strip())
 for k,v in count.items():
