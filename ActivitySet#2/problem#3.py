@@ -2,6 +2,8 @@
 
 def get_cs():
     """get string input"""
+  str=input('enter the shortcuts and its reps',)
+  
 
 
 def cs_to_lot(cs):
