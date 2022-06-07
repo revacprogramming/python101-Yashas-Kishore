@@ -17,11 +17,11 @@ def main():
     lot=list()
     lot = cs_to_lot(cs,lot)
     #print(lot)
-    out=dict()
-    for test in lot:
-        short=test.split('=')
-        out[short[0]] = short[1]
-    print(out.items())
+    #out=dict()
+    #for test in lot:
+     #   short=test.split('=')
+      #  out[short[0]] = short[1]
+    print(lot)
 
 process=input('what process r u doing? \n')
 if process == 'strsplit':
