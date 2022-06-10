@@ -8,11 +8,13 @@ ctx.verify_mode = ssl.CERT_NONE
 
 #https://web.whatsapp.com/
 url=input('Enter:- ')
-html = urlopen(url, context=ctx).read()
+html = urllib.request.urlopen(url, context=ctx).read()
 searches= BeautifulSoup(html, "html.parser")
-
-tags=seaarch('a')
+a=span
+tags=search('a')
 for tag in test:
     print('TAG: ',tag)
-    if tag == span:
-        print('url:',tag.get('span',None)+1)
+    if tag == tag.contents[0]:
+      
+   # if tag == span:
+    #    print('url:',tag.get('span',None)+1)
