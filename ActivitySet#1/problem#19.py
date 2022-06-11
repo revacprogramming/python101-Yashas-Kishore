@@ -10,11 +10,21 @@ ctx.verify_mode = ssl.CERT_NONE
 url=input('Enter:- ')
 html = urllib.request.urlopen(url, context=ctx).read()
 searches= BeautifulSoup(html, "html.parser")
-a=span
-tags=search('a')
+a='span'
+#tags=search('a')
+'''
 for tag in test:
     print('TAG: ',tag)
     if tag == tag.contents[0]:
       
+      
    # if tag == span:
     #    print('url:',tag.get('span',None)+1)
+'''
+tags = soup('a')
+for tag in tags:
+    # Look at the parts of a tag
+    print('TAG:', tag)
+    print('URL:', tag.get('href', None))
+    print('Contents:', tag.contents[0])
+    print('Attrs:', tag.attrs)
