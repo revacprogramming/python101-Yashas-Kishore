@@ -11,6 +11,6 @@ else :
   print ("regular")
   h = h + 0
   ovt = 0
-    
 ptm = (h*rt) + (ovt*(rt*1.5))
+
 print(ptm)
