@@ -13,9 +13,19 @@ soup = BeautifulSoup(html, 'html.parser')
 
 # Retrieve all of the anchor tags
 tags = soup('a')
-#def retr(tags):
-    #for tag in tags:
-        #print(tag.get('href', None))
+#for tag in tags:
+  #print(tag.get('href', None))
+tag = tags[3]
+while tag != None:
+  
+  tag = tags[3]
+  link = tag.get('href',None)
+  print(link)
+  html2=urllib.request.urlopen(link, context=ctx).read()
+  tags= soup('a')
+  tag=tags[3]
+print(link)
+
 '''       
 for tag in tags:
     test=tag.get('href', None)
@@ -27,9 +37,10 @@ for tag in tags:
 #for tagg in tags:
     #retr(tagg)
 '''
+'''
 while True:
   tag = tags[3]
   html2 = urllib.request.urlopen(tag, context=ctx).read()
   soup2=BeautifulSoup(html2, 'html.parser')
   troops = soup2('a')
-  
+'''
