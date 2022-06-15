@@ -14,15 +14,21 @@ soup = BeautifulSoup(html, 'html.parser')
 # Retrieve all of the anchor tags
 tags = soup('a')
 #for tag in tags:
+
   #print(tag.get('href', None))
 tag = tags[3]
-while tag != None:
-  
+link = html
+while True:
+  if tag == None:
+    link2=urllib.request.urlopen(link, context=ctx).read()
+    print()
+    break 
   tag = tags[3]
   link = tag.get('href',None)
   print(link)
   html2=urllib.request.urlopen(link, context=ctx).read()
-  tags= soup('a')
+  soup2 = BeautifulSoup(html2, 'html.parser')
+  tags= soup2('a')
   tag=tags[3]
 print(link)
 
