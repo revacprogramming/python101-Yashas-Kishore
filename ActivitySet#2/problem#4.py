@@ -84,7 +84,10 @@ def main():
     #print(out.items())
     cs=lot_to_cs(lot)
     print(cs)
-    
+'''  
 process=input('what process r u doing?')
 if process == 'strsplit':
+    main()
+'''
+if __name__ == '__main__':
     main()
