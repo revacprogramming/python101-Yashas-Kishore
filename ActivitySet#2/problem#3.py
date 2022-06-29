@@ -1,5 +1,7 @@
 
 
+
+
 #"""get string input"""
 def get_cs():
     str=input('enter the shortcuts and its reps in form "word=sf" \n')
