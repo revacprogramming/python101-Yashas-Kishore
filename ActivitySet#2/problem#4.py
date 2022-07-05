@@ -49,41 +49,34 @@ def get_cs():
     return str
 
 #"""convert connected string to list of strings"""
-def cs_to_lot(cs):
+def cs_to_lot(cs,x):
     word=cs.split(';')
-    result=dict()
-    for exam in word:
-      short=exam.split('=')
-      #s1=short[0]
-      #s2=short[1]
-      #result[s1]=s2
-      print(len(short))
-    return short
+    for test in word:
+        z=test.split('=')
+        y=(z[0],z[1])
+        x.append(y)
+    return x
 
 #"""convert list of strings to connected string"""
 def lot_to_cs(lot):
-    fc=list()
-    fest=None
-    for truce in lot:
-        tr=truce[0]+'='+truce[1]
-        fc.append(tr)
-        for trick in fc:
-            if fest==None:
-                fest=trick
-            else:
-                fest=fest+trick
-        return fest
-
+    m=list()
+    for i in lot:
+        part="=".join(i)
+        print(part)
+        m.append(part)
+    test=";".join(m)
+    return test
+        
 def main():
     cs = get_cs()
-    lot=dict()
-    lot = cs_to_lot(cs)
+    lot=list()
+    lot = cs_to_lot(cs,lot)
     print(lot)
     #out=dict()
-    #cs=lot_to_cs(lot) 
+    cs=lot_to_cs(lot) 
     #print(out.items())
     #cs=lot_to_cs(lot)
-    #print(cs)
+    print(cs)
 
 process=input('what process r u doing?')
 if process == 'strsplit':
