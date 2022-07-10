@@ -18,7 +18,7 @@ def cs_to_dict(cs):
 def dict_to_cs(d):
     m=list()
     for i in d:
-        x=i+d[i]
+        x=i+'='+d[i]
         m.append(x)
     test=";".join(m)
     return test
@@ -32,7 +32,7 @@ def main():
     d = cs_to_dict(cs) # convert connect string to a dictionary
     print(d)
 
-    dict_to_cs(d)
+    cs=dict_to_cs(d)
     print(cs)
 
 
