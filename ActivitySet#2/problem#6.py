@@ -1,15 +1,15 @@
 
 
 class Menu:
+    x=dict()
     def add(self, item, rate):
         self.item = item
         self.rate = rate
-        x=dict()
-        x[item]=item
-        return x 
+        self.x[item]=rate
 
-    def show():
-        for i in x:
+    def show(self):
+        for i in self.x:
+            print(i,' ',self.x[i])
             
 
 m = Menu()  # Menu is a class
