@@ -6,10 +6,10 @@ class Menu:
         self.items={}
         
     
-    def __add__(self,item,rate):
-        self.item = item
-        self.rate = rate
-        self.items[self.item]=self.rate
+    def __add__(self,*item):
+        self.item = item[0]
+        self.rate = item[1]
+        self.items[self.item[0]]= self.item[1]
 
 
     def show(self):
