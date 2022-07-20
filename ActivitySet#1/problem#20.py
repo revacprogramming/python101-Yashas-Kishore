@@ -1,52 +1,23 @@
 import urllib.request, urllib.parse, urllib.error
-from bs4 import BeautifulSoup
-import ssl
+import json
 
-# Ignore SSL certificate errors
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
+serviceurl = 'http://py4e-data.dr-chuck.net/geojson?'
 
-url = "http://py4e-data.dr-chuck.net/known_by_Fikret.html"
-html = urllib.request.urlopen(url, context=ctx).read()
-soup = BeautifulSoup(html, 'html.parser')
+address = input('Enter location: ')
+    #address = "South Federal University"
+    #address = "University of Chicago"
 
-# Retrieve all of the anchor tags
-tags = soup('a')
-#for tag in tags:
+url = serviceurl + urllib.parse.urlencode({'address': address})
 
-  #print(tag.get('href', None))
-tag = tags[3]
-link = html
-while True:
-  if tag == None:
-    link2=urllib.request.urlopen(link, context=ctx).read()
-    print()
-    break 
-  tag = tags[3]
-  link = tag.get('href',None)
-  print(link)
-  html2=urllib.request.urlopen(link, context=ctx).read()
-  soup2 = BeautifulSoup(html2, 'html.parser')
-  tags= soup2('a')
-  tag=tags[3]
-print(link)
+print('Retrieving', url)
+uh = urllib.request.urlopen(url)
+data = uh.read().decode()
+print('Retrieved', len(data), 'characters')
 
-'''       
-for tag in tags:
-    test=tag.get('href', None)
-    html2 = urllib.request.urlopen(test, context=ctx).read()
-    soup2=BeautifulSoup(html2, 'html.parser')
-    troops = soup2('a')
-    for troop in troops:
-      print(troop.get('href', None))
-#for tagg in tags:
-    #retr(tagg)
-'''
-'''
-while True:
-  tag = tags[3]
-  html2 = urllib.request.urlopen(tag, context=ctx).read()
-  soup2=BeautifulSoup(html2, 'html.parser')
-  troops = soup2('a')
-'''
+try:
+    js = json.loads(data)
+    print("Place id",js["results"][0]["place_id"])
+
+except:
+    js = None  
+    print('==== Failure To Retrieve ====')
