@@ -34,3 +34,9 @@ for line in handle:
         cur.execute('''UPDATE Counts SET count = count + 1  WHERE org = ?''',(domain[1],))
          
 conn.commit()
+
+table = 'SELECT org, count FROM Counts ORDER BY count DESC'
+for line in cur.execute(table): 
+    print(str(line[0]), ":", str(line[1]))
+
+conn.close()
