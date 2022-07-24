@@ -1,19 +1,27 @@
 class Menu:
     
-    def __init__(self):
-        self.items={}
-        
     
-    def __add__(self,item):
-        self.items[item[0]] = item[1]
-        return self
+    def __init__(self):
+      self.foods={}
+    
+    
+    def __add__(self,x):
+      if(x[0] in self.foods):
+        self.foods[x[0]]+=x[1]
+      else:
+        self.foods[x[0]]=x[1]
+      return self
+
 
     def __str__(self):
-        for k,v in self.items.items():
-            print(k, v)
-        
+      k=""
+      for a in self.foods:
+        k+=(f"{a}  {self.foods[a]}\n")
+      return(k[:-1])
+
+
+
 m = Menu()
-# Hint: operator overloading special methods (__add__, __sub__, etc.)
-m = m + ("idly" , 10) + ("vada" , 20)  
+m = m + ("idly", 10)+ ("vada",20) 
 
 print(m)
